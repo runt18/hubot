@@ -1,6 +1,6 @@
 {Adapter,TextMessage} = require 'hubot'
 flowdock              = require 'flowdock'
-Log        = require 'log'
+Log                   = require 'log'
 
 class Flowdock extends Adapter
   send: (user, strings...) ->
@@ -14,6 +14,7 @@ class Flowdock extends Adapter
     ids = (flow.id for flow in @flows)
     @stream = @bot.stream(ids, active: 'idle')
     @stream.on 'message', (message) =>
+      @logger.debug "Message: #{message.event}"
       return unless message.event == 'message'
       author =
         name: @userForId(message.user).name
