@@ -4,9 +4,11 @@ Log                   = require 'log'
 
 class Flowdock extends Adapter
   send: (user, strings...) ->
+    @logger.debug "Send #{user.name}"
     @bot.message user.flow, str for str in strings
 
   reply: (user, strings...) ->
+    @logger.debug "Reply to #{user.name}: #{str}"
     strings.forEach (str) =>
       @send user, "@#{user.name}: #{str}"
 
