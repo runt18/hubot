@@ -123,7 +123,7 @@ class Robot
     results = []
     for listener in @listeners
       try
-		@logger.debug "Calling listener: #{listener}"
+        @logger.debug "Calling listener: #{listener}"
         results.push listener.call(message)
         break if message.done
       catch error
