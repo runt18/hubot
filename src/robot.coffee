@@ -119,9 +119,11 @@ class Robot
   #
   # Returns nothing.
   receive: (message) ->
+    @logger.debug "Receive: #{message}"
     results = []
     for listener in @listeners
       try
+		@logger.debug "Calling listener: #{listener}"
         results.push listener.call(message)
         break if message.done
       catch error
