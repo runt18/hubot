@@ -22,9 +22,8 @@ class Flowdock extends Adapter
         name: @userForId(message.user).name
         flow: message.flow
 		
-      @logger.debug "Author: #{author.name}"
-		
       return if @robot.name == author.name
+      @logger.debug "Author: #{author.name}"
       @receive new TextMessage(author, message.content)
 
   run: ->
