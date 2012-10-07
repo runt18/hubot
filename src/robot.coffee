@@ -222,7 +222,7 @@ class Robot
   # adapter - A String of the adapter name to use.
   #
   # Returns nothing.
-  adapter: (path, adapter) ->
+  loadAdapter: (path, adapter) ->
     @logger.debug "Loading adapter #{adapter}"
 
     try
