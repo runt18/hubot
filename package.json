@@ -2,7 +2,7 @@
   "name":        "hubot",
   "version":     "2.3.4",
   "author":      "hubot",
-  "keywords":    "github hubot campfire bot",
+  "keywords":    "github hubot campfire bot agile agilebits",
   "description": "A simple helpful Robot for your Company",
   "licenses":     [{
     "type":       "MIT",
@@ -16,7 +16,6 @@
 
   "dependencies": {
 	"hubot-flowdock": ">= 0.0.1",
-	"hubot": ">= 2.0.0",	  
     "coffee-script": "1.3.3",
     "optparse": "1.0.3",
     "scoped-http-client": "0.9.7",
