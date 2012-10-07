@@ -36,7 +36,9 @@ class Flowdock extends Adapter
     @bot.flows (flows) =>
       @flows = flows
       for flow in flows
+		@logger.debug "Flow: #{flow}"
         for user in flow.users
+		  @logger.debug "-- User: #{user.nick}"
           data =
             id: user.id
             name: user.nick
