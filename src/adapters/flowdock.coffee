@@ -14,11 +14,14 @@ class Flowdock extends Adapter
     ids = (flow.id for flow in @flows)
     @stream = @bot.stream(ids, active: 'idle')
     @stream.on 'message', (message) =>
-      @logger.debug "Message: #{message.event}"
+      @logger.debug "Message: #{message.event}, #{message.content}"
       return unless message.event == 'message'
       author =
         name: @userForId(message.user).name
         flow: message.flow
+		
+      @logger.debug "Author: #{author.name}"
+		
       return if @robot.name == author.name
       @receive new TextMessage(author, message.content)
 
