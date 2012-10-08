@@ -43,7 +43,7 @@ class TextListener extends Listener
       if message instanceof TextMessage
         @logger.debug "Matching #{message} to {@regex.toString()} == #{message.match @regex}"
         message.match @regex
-	  else
+      else
         @logger.debug "Message is not TextMessage"
 
 module.exports.Listener     = Listener
