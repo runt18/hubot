@@ -25,7 +25,6 @@ class Listener
       @callback new @robot.Response(@robot, message, match)
       true
     else
-      @logger.debug "Did not match #{message}"
       false
 
 class TextListener extends Listener
@@ -40,7 +39,10 @@ class TextListener extends Listener
     @logger       = new Log process.env.HUBOT_LOG_LEVEL or 'info'
     @matcher = (message) =>
       if message instanceof TextMessage
+		@logger.debug "Matching #{message} to {@regex.toString()} == #{message.match @regex}"
         message.match @regex
+	  else
+	    @logger.debug "Message is not TextMessage"
 
 module.exports.Listener     = Listener
 module.exports.TextListener = TextListener
