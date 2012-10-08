@@ -12,7 +12,7 @@ class Flowdock extends Adapter
     @bot.message user.flow, str for str in strings
 
   reply: (user, strings...) ->
-    @logger.debug "Reply to #{user.name}: #{str}"
+    @logger.debug "Reply to #{user.name}"
     strings.forEach (str) =>
       @send user, "@#{user.name}: #{str}"
 
