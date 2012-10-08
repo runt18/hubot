@@ -9,8 +9,6 @@
 #
 # Commands:
 # 
-# Authors:
-#   jimeh
 
 module.exports = (robot) ->
   robot.hear /facepalm/i, (msg) ->
