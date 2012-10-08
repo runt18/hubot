@@ -7,8 +7,12 @@
 #   hubot time - Reply with current time
 #   hubot die - End hubot process
 
+Log                   = require 'log'
+
 module.exports = (robot) ->
   robot.respond /PING$/i, (msg) ->
+    @logger       = new Log process.env.HUBOT_LOG_LEVEL or 'info'
+    @logger.debug "Received PING, Replying with PONG"
     msg.send "PONG"
 
   robot.respond /ECHO (.*)$/i, (msg) ->
