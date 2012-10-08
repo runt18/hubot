@@ -1,4 +1,5 @@
 {TextMessage} = require './message'
+Log        = require 'log'
 
 class Listener
   # Listeners receive every message from the chat source and decide if they
@@ -9,6 +10,7 @@ class Listener
   #            callback.
   # callback - A Function that is triggered if the incoming message matches.
   constructor: (@robot, @matcher, @callback) ->
+    @logger       = new Log process.env.HUBOT_LOG_LEVEL or 'info'
 
   # Public: Determines if the listener likes the content of the message. If
   # so, a Response built from the given Message is passed to the Listener
@@ -19,9 +21,11 @@ class Listener
   # Returns a boolean of whether the matcher matched.
   call: (message) ->
     if match = @matcher message
+      @logger.debug "Matched #{message}"
       @callback new @robot.Response(@robot, message, match)
       true
     else
+      @logger.debug "Did not match #{message}"
       false
 
 class TextListener extends Listener
