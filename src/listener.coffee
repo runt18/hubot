@@ -37,6 +37,7 @@ class TextListener extends Listener
   #            callback.
   # callback - A Function that is triggered if the incoming message matches.
   constructor: (@robot, @regex, @callback) ->
+    @logger       = new Log process.env.HUBOT_LOG_LEVEL or 'info'
     @matcher = (message) =>
       if message instanceof TextMessage
         message.match @regex
