@@ -85,7 +85,7 @@ class Robot
     else
       newRegex = new RegExp("^#{@name}[:,]?\\s*(?:#{pattern})", modifiers)
 
-    @logger.debug newRegex.toString()
+    @logger.debug "Adding listener for #{newRegex.toString()}"
     @listeners.push new TextListener(@, newRegex, callback)
 
   # Public: Adds a Listener that triggers when anyone enters the room.
