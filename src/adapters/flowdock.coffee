@@ -1,6 +1,10 @@
-{Adapter,TextMessage} = require 'hubot'
 flowdock              = require 'flowdock'
 Log                   = require 'log'
+
+Robot                                   = require '../robot'
+Adapter                                 = require '../adapter'
+{TextMessage,EnterMessage,LeaveMessage} = require '../message'
+
 
 class Flowdock extends Adapter
   send: (user, strings...) ->
